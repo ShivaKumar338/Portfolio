@@ -57,9 +57,9 @@ if selection == "Home":
     st.markdown(
         """
         Hello! I'm Shiva Kumar, an AI Engineer/ Ml Engineer and Data Scientist with a passion for leveraging technology to solve real-world problems.
-        With expertise in Python, machine learning, and data analysis, I enjoy creating innovative solutions that drive efficiency and insights.
+        With expertise in Python, machine learning and data analysis, I enjoy creating innovative solutions that drive efficiency and insights.
         - I have worked on various projects ranging from AI-powered chatbots to predictive analytics systems.
-        - In my free time, I love exploring new technologies, contributing to open-source projects, and enhancing my skills in AI and data science.
+        - In my free time, I love exploring new technologies, contributing to open-source projects and enhancing my skills in AI and data science.
         I'm excited to connect with like-minded professionals and explore new opportunities in the tech industry.
 
         """
@@ -71,7 +71,7 @@ if selection == "Home":
             - Collaborated on machine learning projects to enhance data-driven decision-making.
             - Utilized various ML algorithms to analyze and interpret complex datasets.
             - Built machine learning models to improve business processes.
-            - Learned Neural Networks, DeepLearning concepts, Decision Trees, Random Forests, and other ML techniques.
+            - Learned Neural Networks, DeepLearning concepts, Decision Trees, Random Forests and other ML techniques.
 
         - **Training AI Intern in SkillDuniya** (March(2025) - May(2025))
             - Worked on training AI models using ScikitLearn,Pytorch,Tensorflow.
@@ -84,7 +84,7 @@ if selection == "Home":
 
 elif selection == "Projects":
     st.header("Projects")
-    st.markdown("A selection of projects demonstrating my skills in Machine Learning, AI, and Data Science.")
+    st.markdown("A selection of projects demonstrating my skills in Machine Learning, AI and Data Science.")
 
 
     st.subheader("Skills Demonstrated Across Projects")
@@ -107,7 +107,7 @@ elif selection == "Projects":
     Developed a **Vision AI–based object detection system** capable of identifying and localizing objects in real time.
 
     - Designed and implemented object detection pipelines using **TensorFlow and OpenCV**.
-    - Performed image preprocessing, model inference, and post-processing for bounding box generation.
+    - Performed image preprocessing, model inference and post-processing for bounding box generation.
     - Optimized the system for **real-time inference on edge devices**, focusing on latency and efficiency.
     - Applied the solution to practical use cases such as **security monitoring** and **inventory management**.
     - Evaluated performance using detection accuracy and inference speed.
@@ -120,7 +120,7 @@ elif selection == "Projects":
     - Implemented backend logic using **Python** and integrated **Gemini API** for natural language understanding.
     - Designed conversational flows to provide accurate and context-aware responses.
     - Integrated the chatbot with a **web interface** for a smooth and interactive user experience.
-    - Focused on prompt design, response handling, and user interaction optimization.
+    - Focused on prompt design, response handling and user interaction optimization.
     """)
 
     # -------------------------------
@@ -136,11 +136,11 @@ elif selection == "Projects":
 
 elif selection == "Skills":
     st.markdown("""
-    I possess strong skills in **Python, Machine Learning, Data Analysis, PostgreSQL, TensorFlow, PyTorch, and JavaScript**.  
-    I am capable of designing, training, and evaluating machine learning models and building end-to-end AI solutions.
+    I possess strong skills in **Python, Machine Learning, Data Analysis, PostgreSQL, TensorFlow, PyTorch and JavaScript**.  
+    I am capable of designing, training and evaluating machine learning models and building end-to-end AI solutions.
 
     My learning approach is **research-oriented and theory-backed**. I regularly study machine learning concepts from industry-standard resources such as  
-    **_Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow_**, which strengthens my understanding of model internals, best practices, and real-world applications.
+    **_Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow_**, which strengthens my understanding of model internals, best practices and real-world applications.
 
     I am currently deepening my knowledge of **Deep Learning** with hands-on experimentation using **TensorFlow and PyTorch**.
     """)
@@ -163,4 +163,5 @@ elif selection == "Contact":
         "[📧 Email](https://mail.google.com/mail/?view=cm&fs=1&to=mshivakumar1289@gmail.com) | "
         "[🔗 LinkedIn](https://www.linkedin.com/in/shiva-kumar-madagoni-627038327/) | "
         "[🐙 GitHub](https://github.com/ShivaKumar338)"
+
     )
