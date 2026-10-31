@@ -2,7 +2,6 @@
 server.py
 app.py
 streamlit_app.py
-requirements-streamlit.txt
 __pycache__/
 *.pyc
 .git
