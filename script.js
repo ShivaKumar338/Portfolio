@@ -380,9 +380,18 @@ function initTerminal() {
       &nbsp;&nbsp;<strong>projects</strong>&nbsp;&nbsp;&nbsp;- Top production builds with links<br>
       &nbsp;&nbsp;<strong>exp</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Industry internship history (EdiGlobe, SkillDuniya)<br>
       &nbsp;&nbsp;<strong>education</strong>&nbsp;&nbsp;- Degree, institution & coursework<br>
+      &nbsp;&nbsp;<strong>api</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Live FastAPI backend status and Swagger docs<br>
       &nbsp;&nbsp;<strong>contact</strong>&nbsp;&nbsp;&nbsp;&nbsp;- Direct email, LinkedIn and GitHub handles<br>
       &nbsp;&nbsp;<strong>hire</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ready-to-send internship interview message<br>
       &nbsp;&nbsp;<strong>clear</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear the terminal screen<br>
+    `,
+
+    api: () => `
+      <span class="term-highlight">FastAPI Serverless Backend (Vercel):</span><br>
+      &nbsp;&nbsp;Health Check:&nbsp;&nbsp;&nbsp;&nbsp;<a href="/api/health" target="_blank" class="term-highlight">/api/health</a><br>
+      &nbsp;&nbsp;Projects API:&nbsp;&nbsp;&nbsp;&nbsp;<a href="/api/projects" target="_blank" class="term-highlight">/api/projects</a><br>
+      &nbsp;&nbsp;Interactive Docs:&nbsp;<a href="/api/docs" target="_blank" class="term-highlight">/api/docs (Swagger UI)</a><br>
+      &nbsp;&nbsp;Runtime:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python 3.12 ASGI on Vercel Serverless
     `,
 
     skills: () => `
