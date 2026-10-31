@@ -1,47 +1,41 @@
-import http.server
-import socketserver
-import webbrowser
 import os
-import sys
+from pathlib import Path
 
-PORT = 8000
+import uvicorn
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 
-# Change working directory to directory containing this script
-script_dir = os.path.dirname(os.path.abspath(__file__))
-os.chdir(script_dir)
+PORT = int(os.environ.get("PORT", "8000"))
+SITE_DIR = Path(__file__).resolve().parent
+SITE_FILES = {
+    "index.html": SITE_DIR / "index.html",
+    "style.css": SITE_DIR / "style.css",
+    "script.js": SITE_DIR / "script.js",
+    "projects-data.js": SITE_DIR / "projects-data.js",
+    "Shiva.png": SITE_DIR / "Shiva.png",
+}
 
-Handler = http.server.SimpleHTTPRequestHandler
+app = FastAPI(
+    title="Shiva Kumar Madagoni Portfolio",
+    docs_url="/api/docs",
+    openapi_url="/api/openapi.json",
+)
 
-class CustomHandler(Handler):
-    def end_headers(self):
-        # Enable caching-free local development
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.send_header('Pragma', 'no-cache')
-        self.send_header('Expires', '0')
-        super().end_headers()
 
-# Top-level exports for Vercel scanner compatibility
-handler = CustomHandler
-application = CustomHandler
-app = CustomHandler
+@app.get("/", include_in_schema=False)
+@app.get("/index.html", include_in_schema=False)
+async def home() -> FileResponse:
+    return FileResponse(SITE_FILES["index.html"])
+
+
+@app.get("/{asset_name}", include_in_schema=False)
+async def site_asset(asset_name: str) -> FileResponse:
+    asset = SITE_FILES.get(asset_name)
+    if asset is None:
+        raise HTTPException(status_code=404, detail="Not found")
+    return FileResponse(asset)
+
 
 if __name__ == "__main__":
-    print(f"============================================================")
-    print(f"🚀 Shiva Kumar Madagoni - Portfolio Server Running!")
-    print(f"📡 Local URL: http://localhost:{PORT}")
-    print(f"📂 Serving directory: {script_dir}")
-    print(f"Press Ctrl+C to terminate.")
-    print(f"============================================================")
-
-    try:
-        with socketserver.TCPServer(("", PORT), CustomHandler) as httpd:
-            try:
-                webbrowser.open(f"http://localhost:{PORT}")
-            except Exception:
-                pass
-            httpd.serve_forever()
-    except KeyboardInterrupt:
-        print("\nServer stopped gracefully.")
-    except OSError as e:
-        print(f"\nPort {PORT} already in use or error: {e}")
-        print(f"You can open file://{os.path.abspath('index.html')} directly in your browser!")
+    print(f"Portfolio server running at http://localhost:{PORT}")
+    uvicorn.run(app, host="0.0.0.0", port=PORT)

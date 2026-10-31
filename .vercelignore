@@ -1,5 +1,4 @@
-# Local dev and server scripts - DO NOT build as Vercel serverless functions
-server.py
+# Exclude legacy Streamlit apps from Vercel
 app.py
 streamlit_app.py
 __pycache__/
