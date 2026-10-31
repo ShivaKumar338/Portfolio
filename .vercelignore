@@ -1,0 +1,9 @@
+# Local dev and server scripts - DO NOT build as Vercel serverless functions
+server.py
+app.py
+streamlit_app.py
+requirements-streamlit.txt
+__pycache__/
+*.pyc
+.git
+.env

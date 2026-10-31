@@ -1,6 +1,6 @@
 """
-app.py - Top-level Application Entrypoint for Vercel Deployment & Local ASGI Server
-Exports top-level 'app', 'application', and 'handler' variables as required by Vercel's Python runtime.
+app.py - Local ASGI Development Server for Shiva Kumar Madagoni Portfolio
+Run locally via: python app.py or uvicorn app:app --reload
 """
 import sys
 import os
@@ -9,8 +9,13 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from api.index import app, handler
+from fastapi.staticfiles import StaticFiles
 
-# Top-level exports required by Vercel Python runtime
+# Mount static frontend files for local development previews
+static_dir = os.path.dirname(os.path.abspath(__file__))
+if os.path.exists(os.path.join(static_dir, "index.html")):
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
+
 application = app
 
 __all__ = ["app", "application", "handler"]
@@ -18,7 +23,7 @@ __all__ = ["app", "application", "handler"]
 if __name__ == "__main__":
     import uvicorn
     print("============================================================")
-    print("🚀 Shiva Kumar Madagoni - Portfolio FastAPI Backend")
+    print("🚀 Shiva Kumar Madagoni - Portfolio Full-Stack Server")
     print("📡 Local Server: http://localhost:8000")
     print("📖 Swagger Docs: http://localhost:8000/api/docs")
     print("============================================================")

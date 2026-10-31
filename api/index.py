@@ -200,25 +200,4 @@ def handle_contact_message(payload: ContactRequest):
         received_at=datetime.now(timezone.utc).isoformat()
     )
 
-# ==============================================================================
-# Static Web Portfolio Fallbacks (Serves index.html when run via app.py)
-# ==============================================================================
-
-from fastapi.responses import FileResponse
-
-@app.get("/", include_in_schema=False)
-def serve_index():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    index_file = os.path.join(base_dir, "index.html")
-    if os.path.exists(index_file):
-        return FileResponse(index_file)
-    return {"message": "Portfolio API Running. Visit /api/docs"}
-
-@app.get("/{file_name:path}", include_in_schema=False)
-def serve_root_files(file_name: str):
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    target_file = os.path.join(base_dir, file_name)
-    if os.path.isfile(target_file):
-        return FileResponse(target_file)
-    raise HTTPException(status_code=404, detail="Resource not found")
 
